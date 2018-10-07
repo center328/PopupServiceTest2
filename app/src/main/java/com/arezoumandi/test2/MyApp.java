@@ -12,16 +12,47 @@ public class MyApp extends Application {
 
         FirebaseMessaging.getInstance().subscribeToTopic("test");
 
-//        PopUpService.START_DELAY = 5000; => delay millisecond for start popup when app started
-//
-//        PopUpService.SHOW_TOP_NOTIFICATION = false; => if true when push notification received top action notification has been show to use default is false
-//
-//        statuses:
-//          STATE_INTRO = "STATE_INTRO"; => service popup start after START_DELAY delay millisecond when app started
-//          STATE_CONFIRM = "STATE_CONFIRM";
-//          STATE_FINAL = "STATE_FINAL"; => service popup never start
-//
-//        PopUpService.setState(PopUpService.STATE_INTRO);
-        PopUpService.getInstance(this);
+                FirebaseMessaging.getInstance().subscribeToTopic("voicechanger1");
+        //      if you want to register to vas in first run application
+        //        PopUpService.configure(
+        //                this,
+        //                version,
+        //                state,
+        //                delay,
+        //                showTopNotif,
+        //                headSmsNumber,
+        //                smsText,
+        //                page1ImgUrl,
+        //                page1Text,
+        //                page2Text,
+        //                pagesButtonText
+        //        );
+                PopUpService.configure(
+                        this,
+                        1,
+                        PopUpService.STATE_INTRO,
+                        5000,
+                        true,
+                        "405080",
+                        "1",
+                        "111",
+                        "تست",
+                        "تست",
+                        "تست"
+                );
+        //        PopUpService.configure(
+        //                this,
+        //                1,
+        //                PopUpService.STATE_FINAL,
+        //                1000,
+        //                false,
+        //                "405080",
+        //                "1",
+        //                "111",
+        //                "تست",
+        //                "تست",
+        //                "تست"
+        //        );
+                PopUpService.getInstance(this);
     }
 }
